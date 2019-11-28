@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-colored_logger() {
+colored-logger() {
    local level
    local color
    local use_color
@@ -9,7 +9,7 @@ colored_logger() {
    local grey='\x1B[0;37m'
 
    (( $# == 0 )) && {
-      echo 'colored_logger: expecting at least one argument' >&2
+      echo 'colored-logger: expecting at least one argument' >&2
       return
    }
 
@@ -27,7 +27,7 @@ colored_logger() {
    [[ $level ]] && shift || level=0
 
    [[ $# -gt 0 ]] || {
-      echo 'colored_logger: expecting a message' >&2
+      echo 'colored-logger: expecting a message' >&2
       return
    }
 
@@ -45,8 +45,8 @@ colored_logger() {
 
    return 0
 }
-export -f colored_logger
+export -f colored-logger
 
 if [[ ${BASH_SOURCE[0]} == "$0" ]]; then
-  colored_logger "${@}"
+  colored-logger "${@}"
 fi
