@@ -40,7 +40,8 @@ levelKeywords=(debug info warn error)
 }
 
 @test 'log debug outputs when VERBOSE is true' {
-   export VERBOSE=true
+   # shellcheck disable=SC2034
+   VERBOSE=true
 
    run colored_logger 'I Chase Rivers'
    (( status == 0 ))
@@ -52,6 +53,7 @@ levelKeywords=(debug info warn error)
 
 @test 'log handles barewords' {
    for level in "${levelKeywords[@]}"; do
+      # shellcheck disable=SC2034
       VERBOSE=true
       run colored_logger "$level" Something Good Can Work Remix
       (( status == 0 ))
