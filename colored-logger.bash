@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+VERSION=2.0.1
+
 colored-logger() {
    local level
    local color
@@ -10,6 +12,11 @@ colored-logger() {
 
    (( $# == 0 )) && {
       echo 'colored-logger: expecting at least one argument' >&2
+      return
+   }
+
+   (( $# == 1 )) && [[ $1 =~ ^--version$ ]] && {
+      echo "$VERSION"
       return
    }
 
