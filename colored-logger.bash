@@ -45,7 +45,7 @@ colored-logger() {
       3) color='\x1B[0;31m';; # Red
    esac
 
-   [[ $level -gt 0 || $VERBOSE ]] && {
+   (( level > 0 )) || [[ $VERBOSE ]] && {
       [[ $use_color ]] && echo -e "${color}${*?}${color_off} ${grey}${context}${color_off}"
       [[ $use_color ]] || echo "${*?} ${context}"
    }
@@ -55,5 +55,5 @@ colored-logger() {
 export -f colored-logger
 
 if [[ ${BASH_SOURCE[0]} == "$0" ]]; then
-  colored-logger "${@}"
+   colored-logger "${@}"
 fi
