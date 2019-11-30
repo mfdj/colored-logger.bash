@@ -1,5 +1,5 @@
 {
-  "name": "colored-logger",
+  "name": "renamed-colored-logger",
   "version": "0.0.3",
   "description": "Simple logger",
   "scripts": [ "colored-logger.bash" ]
